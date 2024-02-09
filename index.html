@@ -273,7 +273,7 @@
 					default:
 						resultMessage = "not found"
 				}
-				$('.result-message').html(resultMessage);
+				document.wirte(resultMessage);
                 for (let i = 0; i < maxPredictions; i++) {
                     const classPrediction =
                         prediction[i].className + ': ' + prediction[i].probability.toFixed(2);
