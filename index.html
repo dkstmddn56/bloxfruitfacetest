@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
     <head>
-        <meta name="viewport" content="width=device-width" , initial-scale=1, ser-scalable=no, maximum-scale=1.0, minimum-scale=1.0"/>
+        <meta name="viewport" content="width=device-width" , initial-scale="1" />
         <link rel="stylesheet" href="style.css" />
         <link rel="stylesheet" href="css/bootstrap.css" />
     </head>
@@ -27,6 +27,7 @@
                 </ul>
             </div>
         </nav>
+        <script type="text/javascript" src="//t1.daumcdn.net/kas/static/ba.min.js" async></script>
         <script
             class="jsbin"
             src="https://ajax.googleapis.com/ajax/libs/jquery/1/jquery.min.js"
@@ -47,9 +48,14 @@
                     <h3>Drag and drop a file or select add Image</h3>
                 </div>
             </div>
+			<h1>
+				
+			<strong><p class="result-message" style="text-align: center;">
+				
+			</p></strong></h1>
             <div class="file-upload-content">
                 <img class="file-upload-image" id="face-image" src="#" alt="your image" />
-				<div id="label-container"></div>
+                <div id="label-container"></div>
                 <div class="image-title-wrap">
                     <button type="button" onclick="removeUpload()" class="remove-image">
                         Remove <span class="image-title">Uploaded Image</span>
@@ -97,9 +103,9 @@
                     };
 
                     reader.readAsDataURL(input.files[0]);
-					init().then(()=>{
-						predict();
-					});
+                    init().then(() => {
+                        predict();
+                    });
                 } else {
                     removeUpload();
                 }
@@ -151,129 +157,170 @@
                 // predict can take in an image, video or canvas html element
                 var image = document.getElementById('face-image');
                 const prediction = await model.predict(image, false);
-				prediction.sort((a, b) => parseFloat(b.probability) - parseFloat(a.probability));
-				switch (prediction[0].classname) {
+                prediction.sort((a, b) => parseFloat(b.probability) - parseFloat(a.probability));
+				console.log(prediction);
+				var resultMessage;
+				switch (prediction[0].className) {
 					case "rocket":
 						resultMessage = "You are rocket"
 						break;
+						
 					case "spin":
 						resultMessage = "You are spin"
 						break;
+						
 					case "chop":
 						resultMessage = "You are chop"
 						break;
+						
 					case "spring":
 						resultMessage = "You are spring"
 						break;
+						
 					case "bomb":
 						resultMessage = "You are bomb"
 						break;
+						
 					case "smoke":
 						resultMessage = "You are smoke"
 						break;
+						
 					case "spike":
 						resultMessage = "You are spike"
 						break;
+						
 					case "flame":
 						resultMessage = "You are flame"
 						break;
+						
 					case "falcon":
 						resultMessage = "You are falcon"
 						break;
+						
 					case "ice":
 						resultMessage = "You are ice"
 						break;
+						
 					case "sand":
 						resultMessage = "You are sand"
 						break;
+						
 					case "dark":
 						resultMessage = "You are dark"
 						break;
+						
 					case "diamond":
 						resultMessage = "You are diamond"
 						break;
+						
 					case "light":
 						resultMessage = "You are light"
 						break;
+						
 					case "rubber":
 						resultMessage = "You are rubber"
 						break;
+						
 					case "barrier":
 						resultMessage = "You are barrier"
 						break;
+						
 					case "ghost":
 						resultMessage = "You are ghost"
 						break;
+						
 					case "magma":
 						resultMessage = "You are magma"
 						break;
+						
 					case "quake":
 						resultMessage = "You are quake"
 						break;
+						
 					case "buddha":
 						resultMessage = "You are buddha"
 						break;
+						
 					case "love":
 						resultMessage = "You are love"
 						break;
+						
 					case "spider":
 						resultMessage = "You are spider"
 						break;
+						
 					case "sound":
 						resultMessage = "You are sound"
 						break;
+						
 					case "phoenix":
 						resultMessage = "You are phoenix"
 						break;
+						
 					case "portal":
 						resultMessage = "You are portal"
 						break;
+						
 					case "rumble":
 						resultMessage = "You are rumble"
 						break;
+						
 					case "pain":
 						resultMessage = "You are pain"
 						break;
+						
 					case "blizzard":
 						resultMessage = "You are blizzard"
 						break;
+						
 					case "gravity":
 						resultMessage = "You are gravity"
 						break;
+						
 					case "mammoth":
 						resultMessage = "You are mammoth"
 						break;
+						
 					case "Trex":
 						resultMessage = "You are Trex"
 						break;
+						
 					case "dough":
 						resultMessage = "You are dough"
 						break;
+						
 					case "shadow":
 						resultMessage = "You are shadow"
 						break;
+						
 					case "venom":
 						resultMessage = "You are venom"
 						break;
+						
 					case "control":
 						resultMessage = "You are control"
 						break;
+						
 					case "spirit":
 						resultMessage = "You are spirit"
 						break;
+						
 					case "dragon":
 						resultMessage = "You are dragon"
 						break;
+						
 					case "leopard":
 						resultMessage = "You are leopard"
 						break;
+						
 					case "kitsune":
 						resultMessage = "You are kitsune"
 						break;
+						
 					default:
 						resultMessage = "not found"
 				}
-				
+				$('.result-message').html(resultMessage);
                 for (let i = 0; i < maxPredictions; i++) {
                     const classPrediction =
                         prediction[i].className + ': ' + prediction[i].probability.toFixed(2);
@@ -281,8 +328,8 @@
                 }
             }
         </script>
-	<ins
-            class="kakao_ad_area"
+        <ins
+            class="kakao_ad_area ad_zone"
             style="display: none"
             data-ad-unit="DAN-QOWrSDwxORNKoNyT"
             data-ad-width="728"
