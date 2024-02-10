@@ -133,7 +133,6 @@ body {
 }
 
 .ad-zone {
-  width: 728px;
-  margin: 0 auto; 
+  width: 728px; 
   max-width: 100%;
 }
