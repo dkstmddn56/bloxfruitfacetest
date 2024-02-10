@@ -132,6 +132,8 @@ body {
 	
 }
 
-.file-class {
-  margin: 0 auto;
+.ad-zone {
+  width: 728px;
+  margin: 0 auto; 
+  max-width: 100%;
 }
