@@ -130,3 +130,7 @@ body {
 @media (min-width: 992px;) {
 	
 }
+
+.file-class {
+  margin: 0 auto;
+}
